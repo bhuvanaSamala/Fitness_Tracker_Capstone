@@ -1,0 +1,15 @@
+replicaCount: 2
+
+image:
+  repository: bhuvana20/fitness-tracker
+  tag: v1
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
+
+config:
+  NODE_ENV: production
+  PORT: "5000"

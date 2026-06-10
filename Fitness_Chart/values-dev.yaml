@@ -1,0 +1,4 @@
+replicaCount: 1
+
+config:
+  NODE_ENV: development

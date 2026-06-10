@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fitness-config
+data:
+  NODE_ENV: "{{ .Values.config.NODE_ENV }}"
+  PORT: "{{ .Values.config.PORT }}"
