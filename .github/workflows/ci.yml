@@ -1,0 +1,44 @@
+name: Fitness Tracker CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Root Dependencies
+        run: npm install
+
+      - name: Install Server Dependencies
+        run: |
+          cd server
+          npm install
+
+      - name: Verify Application
+        run: |
+          node --version
+          npm --version
+
+      - name: Verify Project Structure
+        run: |
+          ls -la
+          ls -la server
