@@ -1,0 +1,26 @@
+datadog:
+  apiKey: "642d1e325e80a3658b766ad4dd910503"
+  site: "datadoghq.com"
+
+  logs:
+    enabled: true
+
+  apm:
+    enabled: true
+
+  processAgent:
+    enabled: true
+
+  kubeStateMetricsEnabled: true
+
+  orchestratorExplorer:
+    enabled: true
+
+agents:
+  containers:
+    agent:
+      env:
+        - name: DD_KUBERNETES_KUBELET_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP

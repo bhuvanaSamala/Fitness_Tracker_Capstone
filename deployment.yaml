@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-tracker
+  namespace: fitness-tracker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fitness-tracker
+  template:
+    metadata:
+      labels:
+        app: fitness-tracker
+    spec:
+      containers:
+      - name: fitness-tracker
+        image: bhuvana20/fitness-tracker:v1
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: fitness-config
